@@ -1,0 +1,34 @@
+<h1 class="display-6">Clientes</h1>
+<hr>
+<a routerLink="/clientes/cadastrar" class="btn btn-dark">Novo</a>
+<table class="table table-striped table-bordered mt-3">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nome</th>
+      <th scope="col">CPF</th>
+      <th scope="col">Telefone</th>
+      <th scope="col">Rendimento Mensal</th>
+      <th scope="col">Rua</th>
+      <th scope="col">Número</th>
+      <th scope="col">CEP</th>
+      <th scope="col">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cliente of clientes">
+      <th scope="row">{{cliente.id}}</th>
+      <td>{{cliente.nome}}</td>
+      <td>{{cliente.cpf}}</td>
+      <td>{{cliente.telefone}}</td>
+      <td>{{cliente.rendimentoMensal}}</td>
+      <td>{{cliente.endereco.rua}}</td>
+      <td>{{cliente.endereco.numero}}</td>
+      <td>{{cliente.endereco.cep}}</td>
+      <td>
+        <button type="button" class="btn btn-dark btn-sm" [routerLink]="['editar/', cliente.cpf]">Editar</button>
+        <button type="button" class="btn btn-danger btn-sm ms-1" [routerLink]="['deletar/', cliente.cpf]" >Remover</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
